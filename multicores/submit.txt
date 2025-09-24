@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N rstan-multicore
+#PBS -l select=1:ncpus=16:mem=500gb
+#PBS -l walltime=2:00:00
+#PBS -j oe
+#PBS -o resultCL.txt
+#PBS -P personal-huangxy
+#PBS -q normal
+
+#cd $PBS_O_WORKDIR
+
+module load miniforge3
+conda activate myRenv
+
+Rscript multistate/rstan-multicore.R
